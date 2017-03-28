@@ -1,5 +1,12 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse, Http404
+from .models import Request
 
-def index(request):
-    return HttpResponse("This is the home page of the app. This is where the entry form will be.")
+def index(req):
+    latest_request_list = Request.objects.order_by('-date_created')[:5]
+    context = {'latest_request_list': latest_request_list}
+    return render(req, 'reqman/index.html', context)
+
+def detail(req, request_id):
+    request = get_object_or_404(Request, pk = request_id)
+    return render(req, 'reqman/detail.html', {'request': request})

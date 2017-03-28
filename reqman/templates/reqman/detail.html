@@ -1,0 +1,13 @@
+<h1>{{ request.title }}</h1>
+<ul>
+    <li>{{ request.date_created }}</li>
+    <li>{{ request.date_requested }}</li>
+    <li>{{ request.date_released }}</li>
+    <li>{{ request.stakeholder }}</li>
+{% for analyst in request.analysts.all %}
+    <li>{{ analyst.name }}</li>
+{% endfor %}
+{% for database in request.databases.all %}
+    <li>{{ database.name }}</li>
+{% endfor %}
+</ul>

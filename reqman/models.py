@@ -8,6 +8,9 @@ class Analyst(models.Model):
     email = models.CharField(max_length = 30)
     phone_number = models.CharField(max_length = 30)
 
+    def __str__(self):
+        return self.name
+
 class Database(models.Model):
     # Attributes
     name = models.CharField(max_length = 30)
@@ -15,11 +18,17 @@ class Database(models.Model):
     connection_details = models.CharField(max_length = 30)
     maintained_stakeholder = models.BooleanField()
 
+    def __str__(self):
+        return self.name
+
 class Stakeholder(models.Model):
     # Attributes
     name = models.CharField(max_length = 30)
     title = models.CharField(max_length = 30)
     department = models.CharField(max_length = 30)
+
+    def __str__(self):
+        return self.name
 
 class Request(models.Model):
     # Attributes
@@ -30,6 +39,9 @@ class Request(models.Model):
     stakeholder = models.ForeignKey(Stakeholder, on_delete = models.CASCADE)
     analysts = models.ManyToManyField(Analyst, through = 'Contribution')
     databases = models.ManyToManyField(Database)
+
+    def __str__(self):
+        return self.title
 
 class Contribution(models.Model):
     # Attributes
