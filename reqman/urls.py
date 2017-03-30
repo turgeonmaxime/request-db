@@ -11,5 +11,7 @@ urlpatterns = [
     url(r'^datasource/$', views.db_list, name='db_list'),
     url(r'^datasource/(?P<db_id>[0-9]+)/$', views.db, name='db'),
     url(r'^stakeholder/$', views.stake_list, name='stake_list'),
-    url(r'^stakeholder/(?P<stake_id>[0-9]+)/$', views.stake, name='stake')
+    url(r'^stakeholder/(?P<stake_id>[0-9]+)/$', views.stake, name='stake'),
+    url(r'^request/$', views.request_new, name='request'),
+    url(r'^request/new/$', views.request_new, name='request_new')
 ]
