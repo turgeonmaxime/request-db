@@ -1,0 +1,9 @@
+{% if analyst_list %}
+    <ul>
+    {% for analyst in analyst_list %}
+        <li><a href="{% url 'reqman:analyst' analyst.id %}">{{ analyst.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No analyst is currently working.</p>
+{% endif %}

@@ -5,5 +5,7 @@ from . import views
 app_name = 'reqman'
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^(?P<request_id>[0-9]+)/$', views.detail, name='detail')
+    url(r'^(?P<request_id>[0-9]+)/$', views.detail, name='detail'),
+    url(r'^analyst/$', views.analyst_list, name='analyst_list'),
+     url(r'^analyst/(?P<analyst_id>[0-9]+)/$', views.analyst, name='analyst')
 ]
