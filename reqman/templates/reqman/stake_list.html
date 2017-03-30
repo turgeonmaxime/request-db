@@ -1,0 +1,9 @@
+{% if stake_list %}
+    <ul>
+    {% for stake in stake_list %}
+        <li><a href="{% url 'reqman:stake' stake.id %}">{{ stake.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No stakeholder has been recorded.</p>
+{% endif %}
