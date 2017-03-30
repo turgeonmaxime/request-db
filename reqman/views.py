@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from .models import Request, Analyst, Database, Stakeholder
-from .forms import RequestForm
+from .forms import RequestForm, StakeholderForm
 
 # Main page
 def index(req):
@@ -52,7 +52,7 @@ def request_new(req):
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required
-            # ...
+            request = form.save()
             # redirect to a new URL:
             return HttpResponseRedirect(reverse('reqman:detail', args=(request.id,)))
 
@@ -61,4 +61,22 @@ def request_new(req):
         form = RequestForm()
 
     return render(req, 'reqman/request.html', {'form': form})
+
+def stake_new(req):
+    # if this is a POST request we need to process the form data
+    if req.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = StakeholderForm(req.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            stakeholder = form.save()
+            # redirect to a new URL:
+            return HttpResponseRedirect(reverse('reqman:stake', args=(stakeholder.id,)))
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = StakeholderForm()
+
+    return render(req, 'reqman/stake_new.html', {'form': form})
 

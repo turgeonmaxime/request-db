@@ -13,5 +13,6 @@ urlpatterns = [
     url(r'^stakeholder/$', views.stake_list, name='stake_list'),
     url(r'^stakeholder/(?P<stake_id>[0-9]+)/$', views.stake, name='stake'),
     url(r'^request/$', views.request_new, name='request'),
-    url(r'^request/new/$', views.request_new, name='request_new')
+    url(r'^request/new/$', views.request_new, name='request_new'),
+    url(r'^stakeholder/new/$', views.stake_new, name='stake_new')
 ]
