@@ -1,0 +1,9 @@
+{% if db_list %}
+    <ul>
+    {% for db in db_list %}
+        <li><a href="{% url 'reqman:db' db.id %}">{{ db.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No data source has been recorded.</p>
+{% endif %}

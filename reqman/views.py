@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, Http404
-from .models import Request, Analyst
+from .models import Request, Analyst, Database
 
 def index(req):
     latest_request_list = Request.objects.order_by('-date_created')[:5]
@@ -19,3 +19,12 @@ def analyst_list(req):
     analyst_list = Analyst.objects.all()
     context = {'analyst_list': analyst_list}
     return render(req, 'reqman/analyst_list.html', context)
+
+def db(req, db_id):
+    request = get_object_or_404(Database, pk = db_id)
+    return render(req, 'reqman/db.html', {'db': request})
+
+def db_list(req):
+    db_list = Database.objects.all()
+    context = {'db_list': db_list}
+    return render(req, 'reqman/db_list.html', context)
