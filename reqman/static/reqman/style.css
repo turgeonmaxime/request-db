@@ -1,0 +1,49 @@
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+div {
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+}
+
+.container {
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.event {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.div1 {
+  display: inline;
+  float: left;
+  width: 50%;
+}
+
+.div2 {
+  display: inline;
+  float: right;
+  width: 50%;
+}
+
+.div3 {
+  display: block
+}
+
+.empty {
+  border-width: 0px;
+  display: block;
+  clear: both;
+}

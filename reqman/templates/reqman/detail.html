@@ -1,13 +1,44 @@
-<h1>{{ request.title }}</h1>
-<ul>
-    <li>{{ request.date_created }}</li>
-    <li>{{ request.date_requested }}</li>
-    <li>{{ request.date_released }}</li>
-    <li>{{ request.stakeholder }}</li>
-{% for analyst in request.analysts.all %}
-    <li>{{ analyst.name }}</li>
-{% endfor %}
-{% for database in request.databases.all %}
-    <li>{{ database.name }}</li>
-{% endfor %}
-</ul>
+{% load staticfiles %}
+
+<div class="container">
+    <div class="title">
+        <h1>{{ request.title }}</h1>
+    </div>
+    <div class="div1">
+    <ul>
+        {% for analyst in request.analysts.all %}
+            <li>{{ analyst.name }}</li>
+        {% endfor %}
+    </ul>
+    </div>
+    <div class="div2">
+        <ul>
+            <li>{{ request.date_created }}</li>
+            <li>{{ request.date_requested }}</li>
+            <li>{{ request.date_released }}</li>
+        </ul>
+    </div>
+    <div class="empty"></div>
+    <div class="div1">
+        <ul>
+            <li>{{ request.stakeholder }}</li>
+        </ul>
+    </div>
+    <div class="div2">
+        <ul>
+            {% for database in request.databases.all %}
+            <li>{{ database.name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="empty"></div>
+    <div class="event">
+        <h2>Events</h2>
+    </div>
+    <div class="div3">
+        Event1
+    </div>
+    <div class="div3">
+        Event2
+    </div>
+</div>
